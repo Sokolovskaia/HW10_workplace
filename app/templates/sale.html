@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Продано</title>
+</head>
+<body>
+<h1 align="left"><b><i>Магазин одежды</i></b></h1>
+<table align="center" cellpadding="10" width="70%" border="1" >
+    <caption align="center"><h1><b><i>Реализованные товары</i></b></h1></caption>
+    <tr>
+        <th>Наименование</th>
+        <th>Артикул</th>
+        <th>Размер</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Наличие</th>
+
+    </tr>
+    {% for item in sales %}
+    <tr>
+        <td>{{item.name}}</td>
+        <td>{{item.vendor_code}}</td>
+        <td>{{item.size}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.number}}</td>
+        <td>{% if item.selling == True %}
+            Товар реализован
+            {% endif %}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p align="center"><font size="+2"><a href="{{ url_for('index') }}"><i>Товары на склады</i></a></font></p>
+
+</body>
+</html>
